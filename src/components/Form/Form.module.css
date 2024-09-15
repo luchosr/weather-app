@@ -15,8 +15,7 @@
   font-weight: 400;
   border-radius: 1rem;
 }
-
-.field::placeholder {
+.field ::placeholder {
   color: var(--white);
 }
 

@@ -2,11 +2,9 @@
   --white: #fff;
   --primary: #f59e0b;
 }
-
 html {
   font-size: 62.5%;
 }
-
 body {
   font-family: 'Outfit', sans-serif;
   background-image: url('/bg_clima.jpg');
