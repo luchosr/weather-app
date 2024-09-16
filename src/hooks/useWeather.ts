@@ -10,7 +10,12 @@ export default function useWeather() {
 
       const { data } = await axios.get(geoUrl);
 
-      console.log(data);
+      const { lat, lon } = data[0];
+
+      const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${appId}`;
+
+      const { data: weatherResult } = await axios.get(weatherUrl);
+      console.log(weatherResult);
     } catch (error) {
       console.log(error);
     }
