@@ -1,5 +1,6 @@
-import { Weather } from './../types/index';
+// import { Weather } from './../types/index';
 import axios from 'axios';
+// import { object, string, number, Output, parse } from 'valibot';
 import { z } from 'zod';
 import { SearchType } from '../types';
 
@@ -24,8 +25,22 @@ const Weather = z.object({
     temp_min: z.number(),
   }),
 });
+export type Weather = z.infer<typeof Weather>;
+// ----------------Valibot----------------
 
-type Weather = z.infer<typeof Weather>;
+// const WeatherSchema = object({
+//   name: string(),
+//   main: object({
+//     temp: number(),
+//     temp_max: number(),
+//     temp_min: number(),
+//   }),
+// });
+
+// type Weather = Output<typeof WeatherSchema>;
+
+// ----------------Zod----------------
+// type Weather = z.infer<typeof Weather>;
 
 export default function useWeather() {
   const fetchWeather = async (search: SearchType) => {
@@ -52,6 +67,14 @@ export default function useWeather() {
       //     console.log(weatherResult.name)
       // } else {
       //     console.log('Respuesta mal formada')
+      // }
+
+      // ------------Valibot----------------
+      // const { data: weatherResult } = await axios.get(weatherUrl);
+      // const result = parse(WeatherSchema, weatherResult);
+
+      // if (result) {
+      //   console.log(result.name);
       // }
 
       // ------------Zod----------------
