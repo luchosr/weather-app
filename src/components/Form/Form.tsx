@@ -29,7 +29,6 @@ export default function Form({ fetchWeather }: FormProps) {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(search);
     if (Object.values(search).includes('')) {
       setAlert('Todos los campos son obligatorios');
       return;
